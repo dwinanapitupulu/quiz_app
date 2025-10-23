@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-center mb-4">🏆 Leaderboard</h2>
+
+<table class="table table-bordered table-striped text-center shadow">
+  <thead class="table-dark">
+    <tr>
+      <th>Peringkat</th>
+      <th>Nama Pemain</th>
+      <th>Total Skor</th>
+      <th>Total Bermain</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in leaders %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ row.nickname }}</td>
+      <td>{{ row.total_score }}</td>
+      <td>{{ row.total_quiz }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="text-center">
+  <a href="/quiz" class="btn btn-primary">🎯 Main Lagi</a>
+</div>
+{% endblock %}

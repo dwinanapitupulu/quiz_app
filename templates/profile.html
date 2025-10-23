@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card p-4 shadow">
+      <h2 class="mb-3 text-center">👤 Profil Kamu</h2>
+      <p><strong>Username:</strong> {{ username }}</p>
+      <p><strong>Nickname:</strong> {{ nickname }}</p>
+      <p><strong>Skor:</strong> {{ total_score }}</p>
+      <p><strong>Total Kuis Diikuti:</strong> {{ total_quiz }}</p>
+      <div class="text-center">
+        <a href="/quiz" class="btn btn-primary">🎯 Ayo Mulai Kuis </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

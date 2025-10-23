@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="card p-3 mb-3">
+      <form method="POST" class="d-flex">
+        <input class="form-control me-2" name="city" placeholder="Masukkan nama kota (misal: Jakarta)" value="{{ city or '' }}">
+        <button class="btn btn-primary">Cek Cuaca 3 Hari</button>
+      </form>
+    </div>
+
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    {% if weather_days %}
+      <div class="row">
+        {% for day in weather_days %}
+        <div class="col-md-4">
+          <div class="card mb-3 shadow-sm">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ day.weekday }} <small class="text-muted">{{ day.date }}</small></h5>
+              {% if day.icon %}
+                <img src="https://openweathermap.org/img/wn/{{ day.icon }}@2x.png" alt="icon">
+              {% endif %}
+              <p class="card-text text-capitalize">{{ day.description }}</p>
+              <p class="mb-0"><strong>Siang:</strong> {{ day.temp_day }} °C</p>
+              <p class="mb-0"><strong>Malam:</strong> {{ day.temp_night }} °C</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-muted">Masukkan nama kota lalu klik "Cek Cuaca 3 Hari".</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

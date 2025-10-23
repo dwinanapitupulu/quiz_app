@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">🌦️ Cek Cuaca</h2>
+<form method="POST" class="d-flex mb-4">
+    <input class="form-control me-2" type="text" name="city" placeholder="Masukkan nama kota...">
+    <button class="btn btn-primary">Cek</button>
+</form>
+
+{% if weather %}
+<div class="card p-3">
+    <h4>{{ weather.name }}</h4>
+    <p>Suhu: {{ weather.main.temp }} °C</p>
+    <p>Kondisi: {{ weather.weather[0].description }}</p>
+</div>
+{% endif %}
+{% endblock %}

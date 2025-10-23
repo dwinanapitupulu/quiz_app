@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card p-4 shadow">
+            <h2 class="text-center mb-4">Register</h2>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <div class="alert alert-warning">{{ msg }}</div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <form method="POST">
+                <div class="mb-3">
+                    <label>Username</label>
+                    <input class="form-control" name="username" required placeholder="Masukkan username">
+                </div>
+                <div class="mb-3">
+                    <label>Nickname</label>
+                    <input class="form-control" name="nickname" required placeholder="Nama panggilan kamu">
+                </div>
+                <div class="mb-3">
+                    <label>Password</label>
+                    <input class="form-control" name="password" type="password" required placeholder="Buat password">
+                </div>
+                <div class="mb-3">
+                    <label>Konfirmasi Password</label>
+                    <input class="form-control" name="confirm_password" type="password" required placeholder="Ulangi password">
+                </div>
+                <button class="btn btn-primary w-100">Daftar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

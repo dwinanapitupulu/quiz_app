@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Cek Kemampuan AI Anda menggunakan Python</h2>
+<form method="POST">
+  {% for q in questions %}
+  <div class="mb-3">
+    <p><strong>{{ loop.index }}. {{ q.question }}</strong></p>
+    <label>
+      <input type="radio" name="q{{ loop.index0 }}" value="{{ q.option1 }}" required> {{ q.option1 }}
+    </label><br>
+    <label>
+      <input type="radio" name="q{{ loop.index0 }}" value="{{ q.option2 }}" required> {{ q.option2 }}
+    </label><br>
+    <label>
+      <input type="radio" name="q{{ loop.index0 }}" value="{{ q.option3 }}" required> {{ q.option3 }}
+    </label><br>
+    <label>
+      <input type="radio" name="q{{ loop.index0 }}" value="{{ q.option4 }}" required> {{ q.option4 }}
+    </label>
+  </div>
+  {% endfor %}
+  <button class="btn btn-primary">Kumpulkan Jawaban</button>
+</form>
+{% endblock %}
